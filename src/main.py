@@ -1,10 +1,21 @@
 import pyautogui as pgui
-import sys
+import sys, time
 pgui.PAUSE = 0.2
 
-location = pgui.locateOnScreen('..\\images\\accept.png')
-center = pgui.center(location)
-pgui.moveTo(center)
+
+go = True
+while go:
+    time.sleep(5)
+    try:
+        location = pgui.locateOnScreen('..\\images\\moonshard_accept.png', confidence=0.7)
+        center = pgui.center(location)
+        pgui.moveTo(center)
+        pgui.leftClick()
+        go = False
+    except:
+        print("Accept button not found, trying again")
+
+
 
 # print('Press Ctrl-C to quit.')
 # try:
