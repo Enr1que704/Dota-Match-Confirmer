@@ -1,9 +1,6 @@
 import pyautogui as pgui
-import sys, time, smtplib, requests
-from email.message import EmailMessage
+import sys, time, requests, config
 
-TOKEN = '6442084061:AAHszPjHDUr3Ssvm5gs2Nrz9-zQU9E46WEQ'  # bot token
-chat_id = 6576780272
 pgui.PAUSE = 0.2
 
 
@@ -12,7 +9,7 @@ pgui.PAUSE = 0.2
 
 
 def send_alert(message):
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&text={message}"
+    url = f"https://api.telegram.org/bot{config.SETTINGS['token']}/sendMessage?chat_id={config.SETTINGS['chatId']}&text={message}"
     requests.get(url)
 
 
@@ -28,8 +25,6 @@ while go:
         go = False
     except:
         print("Accept button not found, trying again")
-
-
 
 
 
