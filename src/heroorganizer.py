@@ -18,7 +18,7 @@ def get_location(hero):
 
     column = position % 11
     row = position // 11
-    print(str(column) + " " + str(row))
+    return column, row
 
 
 def get_main_attr(hero):
@@ -32,3 +32,4 @@ def get_main_attr(hero):
         return "UNIVERSAL"
     else:
         return "Not found"
+
